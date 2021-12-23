@@ -16,30 +16,32 @@ function generatePassword() {
   var finalPassword = "";
   var randomCharacters = [];
   var passwordLength = window.prompt("How many characters do you want? Choose between 8-128.")
-
-  while (passwordLength < 8 || passwordlength > 128){
+//This while loop will repeat itself until user enters a number between 8 and 128
+  while (passwordLength < 8 || passwordLength > 128){
     var passwordLength = (window.prompt ("Please enter a number between 8 and 128"))
   }
-
+//while the array of random characters is 0, run this loop.
   while(randomCharacters.length === 0){
-    if(window.confirm("do you want numbers")){
-    randomCharacters = randomCharacters.concat(numbers);
-  } 
-  if(window.confirm("do you want symbols")) {
-    randomCharacters = randomCharacters.concat(symbols);
-  } 
-  if(window.confirm("do you want upper")){
-    randomCharacters = randomCharacters.concat(upper);
-  } 
-  if(window.confirm("do you want lower")){
-    randomCharacters = randomCharacters.concat(lower);
+//These if statements ask the user if they want the corresponding elements in their password. If yes, then it will start concatonating elements from their arrays. 
+    if(window.confirm("do you want numbers")) {
+      randomCharacters = randomCharacters.concat(numbers);
+    } 
+    if(window.confirm("do you want symbols")) {
+      randomCharacters = randomCharacters.concat(symbols);
+    } 
+    if(window.confirm("do you want upper")) {
+      randomCharacters = randomCharacters.concat(upper);
+    } 
+    if(window.confirm("do you want lower")) {
+      randomCharacters = randomCharacters.concat(lower);
+    }
   }
-}
- 
+//This for loop uses the input of the password length to set the length of the final password.  
   for(var i = 0; i < passwordLength; i++){
-    finalPassword +- randomCharacters[Math.floor(Math.random() * randomCharacters.length)];
+//Final password using a mesh of all randomCharacters chosen in the while loop. The math.random pulls random elements from the arrays.   
+    finalPassword += randomCharacters[Math.floor(Math.random() * randomCharacters.length)];
   }
-
+//Setting the value for final password.
   return finalPassword
 
 
