@@ -35,9 +35,7 @@ function generatePassword() {
     if(window.confirm("do you want lower")) {
       randomCharacters = randomCharacters.concat(lower);
     }
-    if(randomCharacters.length === 0){
-      window.alert("you need to pick at least one")
-    }
+    if(randomCharacters.length === false){}
   }
 //This for loop uses the input of the password length to set the length of the final password.  
   for(var i = 0; i < passwordLength; i++){
@@ -53,7 +51,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 
